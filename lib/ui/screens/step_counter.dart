@@ -19,6 +19,7 @@ class StepCounter extends StatefulWidget {
 class _StepCounterState extends State<StepCounter> {
 
   CounterBloc _counterBloc;
+  int _stepPerTap = 10; // Mock data for the steps -> with every tap 10 steps are added
   double _caloriePerStep = 0.035;
   TextEditingController _dailyGoalController = new TextEditingController();
 
@@ -122,7 +123,7 @@ class _StepCounterState extends State<StepCounter> {
       ),
       onTap: () {
         context.read<CounterBloc>().add(
-              IncrementCounterEvent(amount: 20),
+              IncrementCounterEvent(amount: _stepPerTap),
             );
       },
     );
